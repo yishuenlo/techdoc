@@ -205,7 +205,7 @@ code .tab3{
   }
 }
 
-@media(max-height:660px){
+@media(max-height:700px){
   nav footer{
     display: none;
   }
