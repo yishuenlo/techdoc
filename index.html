@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Three.js Documentation</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <a href="#main-doc" class="title">Three.js</a>
+         //Documentation
+       </header>
+        <ul>
+          <li><a class="nav-link"href="#introduction">Introduction</a></li>
+          <li><a class="nav-link"href="#features">Features</a></li>
+          <li><a class="nav-link"href="#Getting_started">Getting Started</a></li>
+          <li><a class="nav-link"href="#Before_we_start">Before we start</a></li>
+          <li><a class="nav-link"href="#Creating_the_scene">Creating the Scene</a></li>
+          <li><a class="nav-link"href="#Rendering_the_scene">Rendering the Scene</a></li>
+          <li><a class="nav-link"href="#Animating_the_cube">Animating the Cube</a></li>
+        </ul>
+        <footer>
+          <p>Website designed and developed by Yishuen Lo</p>
+          <p class="tagline"><a href="https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-technical-documentation-page" target="_blank">Technical Documentation <span class="separator">//</span> A freeCodeCamp Project</a></p>
+        </footer>
+
+    </nav>
+    <main id="main-doc">
+      <section id="introduction" class="main-section">
+        <header>Introduction</header>
+        <article>
+          <p><a href="https://threejs.org/" target="_blank">Three.js</a> is a cross-browser JavaScript library and Application Programming Interface (API) used to create and display animated 3D computer graphics in a web browser. Three.js uses WebGL. The source code is hosted in a repository on GitHub.</p>
+          <p>Three.js allows the creation of Graphical Processing Unit (GPU)-accelerated 3D animations using the JavaScript language as part of a website without relying on proprietary browser plugins. This is possible due to the advent of WebGL.</p>
+          <p>High-level libraries such as Three.js or GLGE, SceneJS, PhiloGL or a number of other libraries make it possible to author complex 3D computer animations that display in the browser without the effort required for a traditional standalone application or a plugin.</p>
+        </article>
+      </section>
+
+      <section id="features" class="main-section">
+        <header>Features</header>
+        <article>
+          <p>Three.js includes the following features:</p>
+          <ul>
+            <li><strong>Effects</strong>: Anaglyph, cross-eyed and parallax barrier.</li>
+            <li><strong>Scenes</strong>: add and remove objects at run-time; fog</li>
+            <li><strong>Cameras</strong>: perspective and orthographic; controllers: trackball, FPS, path and more</li>
+            <li><strong>Animation</strong>: armatures, forward kinematics, inverse kinematics, morph and keyframe</li>
+            <li><strong>Lights</strong>: ambient, direction, point and spot lights; shadows: cast and receive</li>
+            <li><strong>Materials</strong>: Lambert</a>, Phong, smooth shading, textures and more</li>
+            <li><strong>Shaders</strong>: access to full OpenGL Shading Language (GLSL) capabilities: lens flare, depth pass and extensive post-processing library</li>
+            <li><strong>Objects</strong>: meshes, particles, sprites, lines, ribbons, bones and more - all with Level of detail</li>
+            <li><strong>Geometry</strong>: plane, cube, sphere, torus, 3D text and more; modifiers: lathe, extrude and tube</li>
+            <li><strong>Data loaders</strong>: binary, image, JSON and scene</li>
+            <li><strong>Utilities</strong>: full set of time and 3D math functions including frustum, matrix, quaternion, UVs and more</li>
+            <li><strong>Export and import</strong>: utilities to create Three.js-compatible JSON files from within: Blender, openCTM, FBX, Max, and OBJ</li>
+            <li><strong>Support</strong>: API documentation is under construction, public forum and wiki in full operation</li>
+            <li><strong>Examples</strong>: Over 150 files of coding examples plus fonts, models, textures, sounds and other support files</li>
+            <li><strong>Debugging</strong>: Stats.js, WebGL Inspector, Three.js Inspector</li>
+            <li><strong>Virtual reality</strong>: accessing WebVR</li>
+          </ul>
+
+        </article>
+      </section>
+
+      <section id="Getting_started" class="main-section">
+        <header>Getting started</header>
+        <article>
+          <p>
+            The goal of this section is to give a brief introduction to three.js. We will start by setting up a scene, with a spinning cube. A working example is provided at the bottom of the page in case you get stuck and need help.</p>
+        </article>
+      </section>
+
+
+      <section id="Before_we_start" class="main-section">
+        <header>Before we start</header>
+        <article>
+          <p>Before you can use three.js, you need somewhere to display it. Save the following HTML to a file on your computer, along with a copy of three.js in the js/ directory, and open it in your browser.</p>
+          <div class="code-container">
+            <code>
+              &lt;!DOCTYPE html&gt; <br>
+              &lt;html&gt;<br>
+              <span class="tab1"></span>&lt;head&gt;<br>
+              <span class="tab2"></span>&lt;meta charset = utf-8&gt; <br>
+              <span class="tab2"></span>&lt;title&gt;
+              My first three.js app &lt;/title&gt;<br>
+              <span class="tab2"></span>&lt;style&gt;<br>
+            			<span class="tab3"></span>body { margin: 0; }<br>
+            			<span class="tab3"></span>canvas { width: 100%; height: 100% } <br>
+              <span class="tab2"></span>&lt;/style&gt;<br>
+              <span class="tab1"></span>&lt;/head&gt;<br>
+              <span class="tab1"></span>&lt;body&gt; <br>
+              <span class="tab2"></span>&lt;script src = "js/three.js"&gt;&lt;/script&gt;<br>
+              <span class="tab2"></span>&lt;script&gt; // Our Javascript will go here. &lt;/script&gt;<br>
+              <span class="tab1"></span>&lt;/body&gt;<br>
+              &lt;/html&gt;
+          </code>
+          </div>
+
+        <p>That's all. All the code below goes into the empty &lt;script&gt; tag.</p>
+        </article>
+      </section>
+
+      <section id="Creating_the_scene" class="main-section">
+        <header>Creating the scene</header>
+        <article>
+          <p>To actually be able to display anything with three.js, we need three things: scene, camera and renderer, so that we can render the scene with camera.</p>
+          <div class="code-container">
+            <code>
+              var scene = new THREE.Scene();<br>
+              var camera = new THREE.PerspectiveCamera( 75, window.innerWidth window.innerHeight, 0.1, 1000 );<br>
+              var renderer = new THREE.WebGLRenderer();<br>
+              renderer.setSize( window.innerWidth, window.innerHeight );<br>
+              document.body.appendChild( renderer.domElement );<br>
+              </code>
+          </div>
+
+          <p>Let's take a moment to explain what's going on here. We have now set up the scene, our camera and the renderer.</p>
+          <p>The first attribute is the field of view. FOV is the extent of the scene that is seen on the display at any given moment. The value is in degrees.</p>
+          <p>The second one is the aspect ratio. You almost always want to use the width of the element divided by the height, or you'll get the same result as when you play old movies on a widescreen TV - the image looks squished.</p>
+          <p>The next two attributes are the near and far clipping plane. What that means, is that objects further away from the camera than the value of far or closer than near won't be rendered. You don't have to worry about this now, but you may want to use other values in your apps to get better performance.</p>
+          <p>Next up is the renderer. This is where the magic happens. In addition to the WebGLRenderer we use here, three.js comes with a few others, often used as fallbacks for users with older browsers or for those who don't have WebGL support for some reason.</p>
+          <p>In addition to creating the renderer instance, we also need to set the size at which we want it to render our app. It's a good idea to use the width and height of the area we want to fill with our app - in this case, the width and height of the browser window. For performance intensive apps, you can also give setSize smaller values, like window.innerWidth/2 and window.innerHeight/2, which will make the app render at half size.</p>
+          <p>If you wish to keep the size of your app but render it at a lower resolution, you can do so by calling setSize with false as updateStyle (the third argument). For example, setSize(window.innerWidth/2, window.innerHeight/2, false) will render your app at half resolution, given that your &lt;canvas&gt has 100% width and height.</p>
+          <p>Last but not least, we add the renderer element to our HTML document. This is a &lt;canvas&gt; element the renderer uses to display the scene to us.</p>
+          <p>"That's all good, but where's that cube you promised?" Let's add it now.</p>
+          <div class="code-container">
+            <code>
+              var geometry = new THREE.BoxGeometry( 1, 1, 1 );<br>
+              var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );<br>
+              var cube = new THREE.Mesh( geometry, material );<br>
+              scene.add( cube );<br>
+              camera.position.z = 5;<br>
+            </code>
+          </div>
+
+          <p>To create a cube, we need a BoxGeometry. This is an object that contains all the points (vertices) and fill (faces) of the cube. We'll explore this more in the future.</p>
+          <p>In addition to the geometry, we need a material to color it. Three.js comes with several materials, but we'll stick to the MeshBasicMaterial for now. All materials take an object of properties which will be applied to them. To keep things very simple, we only supply a color attribute of 0x00ff00, which is green. This works the same way that colors work in CSS or Photoshop (hex colors).</p>
+          <p>The third thing we need is a Mesh. A mesh is an object that takes a geometry, and applies a material to it, which we then can insert to our scene, and move freely around.</p>
+          <p>By default, when we call scene.add(), the thing we add will be added to the coordinates (0,0,0). This would cause both the camera and the cube to be inside each other. To avoid this, we simply move the camera out a bit.</p>
+        </article>
+      </section>
+
+      <section id="Rendering_the_scene" class="main-section">
+        <header>Rendering the Scene</header>
+        <article>
+          <p>If you copied the code from above into the HTML file we created earlier, you wouldn't be able to see anything. This is because we're not actually rendering anything yet. For that, we need what's called a render or animate loop.</p>
+          <div class="code-container">
+            <code>
+              function animate() {<br>
+                <span class="tab1"></span>requestAnimationFrame( animate );<br>
+                <span class="tab1"></span>renderer.render( scene, camera );<br>
+              }<br>
+              animate();
+            </code>
+          </div>
+
+          <p>This will create a loop that causes the renderer to draw the scene every time the screen is refreshed (on a typical screen this means 60 times per second). If you're new to writing games in the browser, you might say "why don't we just create a setInterval ?" The thing is - we could, but requestAnimationFrame has a number of advantages. Perhaps the most important one is that it pauses when the user navigates to another browser tab, hence not wasting their precious processing power and battery life.</p>
+        </article>
+      </section>
+
+      <section id="Animating_the_cube" class="main-section">
+        <header>Animating the Cube</header>
+        <article>
+          <p>If you insert all the code above into the file you created before we began, you should see a green box. Let's make it all a little more interesting by rotating it.</p>
+          <p>Add the following right above the renderer.render call in your animate function:</p>
+          <div class="code-container">
+            <code>
+              cube.rotation.x += 0.01;<br>
+              cube.rotation.y += 0.01;<br>
+            </code>
+          </div>
+
+          <p>This will be run every frame (normally 60 times per second), and give the cube a nice rotation animation. Basically, anything you want to move or change while the app is running has to go through the animate loop. You can of course call other functions from there, so that you don't end up with a animate function that's hundreds of lines.</p>
+        </article>
+      </section>
+
+    </main>
+    <!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js" charset="utf-8"></script> -->
+  </body>
+</html>
