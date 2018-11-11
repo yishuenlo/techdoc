@@ -179,7 +179,7 @@ code .tab3{
   nav{
     position: relative;
     width: 100%;
-    height: 240px;
+    height: 260px;
     padding-top: 10px;
     font-size: 16px;
   }
@@ -234,6 +234,7 @@ code .tab3{
 
 @media(max-width: 360px){
   nav li{
+    line-height: 25px;
     font-size: 0.8em;
   }
 }
