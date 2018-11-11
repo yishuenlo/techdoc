@@ -6,6 +6,8 @@
 }
 
 
+
+
 body, h1, h2, h3, div, article, section, nav, main, ul, li, p, code{
   padding: 0;
   margin: 0;
@@ -237,4 +239,14 @@ code .tab3{
     line-height: 25px;
     font-size: 0.8em;
   }
+}
+
+.name{
+  font-family: "reenie beanie", sans-serif;
+  font-size: 2em;
+}
+
+.name:hover{
+  color: var(--accent);
+  transition: 400ms ease-out;
 }
